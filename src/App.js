@@ -1,22 +1,10 @@
 import { useEffect, useRef } from "react";
 import "./styles.css";
+import { useOutsideClick } from "./useOutsideClick";
 
 export default function App() {
   const mainRef = useRef();
-  const onOutsideClick = (e) => {
-    const inMain = mainRef.current.contains(e.target);
-    const isOutside = !inMain;
-    if (isOutside) {
-      console.log("Clicked ouside");
-    }
-  };
-  useEffect(() => {
-    document.addEventListener("click", onOutsideClick);
-    return () => {
-      console.log("cleanup");
-      document.removeEventListener("click", onOutsideClick);
-    };
-  }, [mainRef]);
+  useOutsideClick(mainRef, () => console.log("Cloicked outside"));
   return (
     <div className="App">
       <div className="main" ref={mainRef}>
