@@ -12,7 +12,7 @@ export default function App() {
       <div className="main" ref={mainRef} onClick={() => setExpanded(true)}>
         Click me
       </div>
-      {expanded && <span>more details here</span>}
+      {expanded && <div className="more">Lorem ipsum dolor sit amet</div>}
     </div>
   );
 }
