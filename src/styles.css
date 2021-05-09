@@ -1,4 +1,16 @@
-.App {
-  font-family: sans-serif;
-  text-align: center;
+html, body, #root {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.main {
+  background: lightskyblue;
+  font-size: 2rem;
+  width: 50vw;
+  height: 20vh;
+  display: grid;
+  place-items: center;
+  border-radius: 40px;
 }
