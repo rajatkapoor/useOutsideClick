@@ -1,15 +1,18 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./styles.css";
 import { useOutsideClick } from "./useOutsideClick";
 
 export default function App() {
   const mainRef = useRef();
-  useOutsideClick(mainRef, () => console.log("Cloicked outside"));
+  const [expanded, setExpanded] = useState(false);
+
+  useOutsideClick(mainRef, () => setExpanded(false));
   return (
     <div className="App">
-      <div className="main" ref={mainRef}>
+      <div className="main" ref={mainRef} onClick={() => setExpanded(true)}>
         Click me
       </div>
+      {expanded && <span>more details here</span>}
     </div>
   );
 }
